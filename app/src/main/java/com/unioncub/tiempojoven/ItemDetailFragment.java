@@ -74,23 +74,13 @@ public class ItemDetailFragment extends Fragment {
                 case 1:
                     rootView =inflater.inflate(R.layout.fragment_lec1,container,false);
                     enviar= rootView.findViewById(R.id.l1_send_btn);
-                    enviar.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View v) {
-                            EnviarRP(respuesta(1),"1");
-                        }
-                    });
+                    enviar.setOnClickListener(v -> EnviarRP(respuesta(1),"1"));
 
                 break;
                 case 2:
                     rootView =inflater.inflate(R.layout.fragment_lec2,container,false);
                     enviar=rootView.findViewById(R.id.l2_send_btn);
-                    enviar.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View v) {
-                            EnviarRP(respuesta(2),"2");
-                        }
-                    });
+                    enviar.setOnClickListener(v -> EnviarRP(respuesta(2),"2"));
                     return rootView;
                 case 3:
                     rootView =inflater.inflate(R.layout.fragment_lec3,container,false);
@@ -99,9 +89,13 @@ public class ItemDetailFragment extends Fragment {
                     break;
                 case 4:
                     rootView =inflater.inflate(R.layout.fragment_lec4,container,false);
+                    enviar=rootView.findViewById(R.id.l4_send_btn);
+                    enviar.setOnClickListener(v -> EnviarRP(respuesta(mItem.details),""+mItem.details));
                     break;
                 case 5:
                     rootView =inflater.inflate(R.layout.fragment_lec5,container,false);
+                    enviar=rootView.findViewById(R.id.l5_send_btn);
+                    enviar.setOnClickListener(v -> EnviarRP(respuesta(mItem.details),""+mItem.details));
                     break;
                 case 6:
                     rootView =inflater.inflate(R.layout.fragment_lec6,container,false);
@@ -165,6 +159,40 @@ public class ItemDetailFragment extends Fragment {
                 //TODO: chkBox not working properly
                 a="P1: "+getString(R.string.C3_P1)+"\n R1: "+strFrom(r3_1)+ "\n"+"P2: "+getString(R.string.C3_P2)+"\n R2: "+strFrom(r3_2)+ "\n"+"P3: "+getString(R.string.C3_P4)+"\n R3: "+strFrom(r3_4)+ "\n"+"P4: "+getString(R.string.C3_P5)+"\n R4: "+strFrom(r3_5)+ "\n"+"P5: "+getString(R.string.C3_P6)+"\n R5: "+strFrom(r3_6)+ "\n"+"P6: "+getString(R.string.C3_P7)+"\n R6: "+strFrom(r3_7)+ "\n"+"P7: "+getString(R.string.C3_P8)+"\n R7: "+chkBox(r3_8)+"\n"+chkBox(r3_9)+"\n"+chkBox(r3_10)+"\n"+chkBox(r3_11)+"\n";
                 break;
+            case 4:
+                TextView r4_1 =getActivity().findViewById(R.id.C4_R1);
+                TextView r4_2 =getActivity().findViewById(R.id.C4_R2);
+                TextView r4_3 =getActivity().findViewById(R.id.C4_R3);
+                TextView r4_4 =getActivity().findViewById(R.id.C4_R4);
+                TextView r4_5 =getActivity().findViewById(R.id.C4_R5);
+                TextView r4_6 =getActivity().findViewById(R.id.C4_R6);
+                TextView r4_7 =getActivity().findViewById(R.id.C4_R7);
+                TextView r4_8 =getActivity().findViewById(R.id.C4_R8);
+                TextView r4_9 =getActivity().findViewById(R.id.C4_R9);
+                TextView r4_10 =getActivity().findViewById(R.id.C4_R10);
+                a= "P1: "+getString(R.string.C4_P1)+"\n R1: "+strFrom(r4_1)+"\n P2: "+getString(R.string.C4_P2)+"\n R2: "+strFrom(r4_2)+"\n P3: "+getString(R.string.C4_P3)+"\n R3: "+strFrom(r4_3)+"\n P4: "+getString(R.string.C4_P4)+"\n R4: "+strFrom(r4_4)+"\n P5: "+getString(R.string.C4_P5)+"\n R5: "+strFrom(r4_5)+"\n P6: "+getString(R.string.C4_P6)+"\n R6: "+strFrom(r4_6)+"\n P7: "+getString(R.string.C4_P7)+"\n R7: "+strFrom(r4_7)+"\n P8: "+getString(R.string.C4_P8)+"\n R8: "+strFrom(r4_8)+"\n P9: "+getString(R.string.C4_P9)+"\n R9: "+strFrom(r4_9)+"\n P10: "+getString(R.string.C4_P10)+"\n R10: "+strFrom(r4_10);
+                break;
+            case 5:
+                TextView r5_1=getActivity().findViewById(R.id.C5_R1);
+                TextView r5_2=getActivity().findViewById(R.id.C5_R2);
+                TextView r5_3=getActivity().findViewById(R.id.C5_R3);
+                TextView r5_4=getActivity().findViewById(R.id.C5_R4);
+                TextView r5_5=getActivity().findViewById(R.id.C5_R5);
+                TextView r5_6=getActivity().findViewById(R.id.C5_R6);
+                a= "P1: "+getString(R.string.C5_P1)+"\n R1: "+strFrom(r5_1)+"\n P2: "+getString(R.string.C5_P2)+"\n R2: "+strFrom(r5_2)+"\n P3: "+getString(R.string.C5_P3)+"\n R3: "+strFrom(r5_3)+"\n P4: "+getString(R.string.C5_P4)+"\n R4: "+strFrom(r5_4)+"\n P5: "+getString(R.string.C5_P5)+"\n R5: "+strFrom(r5_5)+"\n P6: "+getString(R.string.C5_P6)+"\n R6: "+strFrom(r5_6);
+                break;
+            case 6:
+                TextView r6_1=getActivity().findViewById(R.id.C6_R1);
+                //TODO: Complete Lec6 answers
+                break;
+            case 7:
+                break;
+            case 8:
+                break;
+            case 9:
+                break;
+            case 10:
+                break;
             default:
                 Log.d("test", "Function: def");
                 break;
@@ -192,10 +220,9 @@ public class ItemDetailFragment extends Fragment {
 
     void EnviarRP(String respuesta, String leccion){
         Intent intent = new Intent(android.content.Intent.ACTION_SEND);
-        String shareBody = respuesta;
         intent.setType("text/plain");
         intent.putExtra(android.content.Intent.EXTRA_SUBJECT, "Tiempo Joven Lección "+leccion );
-        intent.putExtra(android.content.Intent.EXTRA_TEXT, shareBody);
+        intent.putExtra(android.content.Intent.EXTRA_TEXT, respuesta);
         startActivity(Intent.createChooser(intent, "Compartir Respuestas"));
     }
 }

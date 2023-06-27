@@ -110,4 +110,11 @@
         android:text="@string/C5_P7"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
 
+    <Button
+        android:id="@+id/l5_send_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="10px"
+        android:text="@string/send_btn" />
+
 </LinearLayout>
