@@ -95,12 +95,7 @@ public class ItemDetailFragment extends Fragment {
                 case 3:
                     rootView =inflater.inflate(R.layout.fragment_lec3,container,false);
                     enviar=rootView.findViewById(R.id.l3_send_btn);
-                    enviar.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View v) {
-                            EnviarRP(respuesta(mItem.details),""+mItem.details);
-                        }
-                    });
+                    enviar.setOnClickListener(v -> EnviarRP(respuesta(mItem.details),""+mItem.details));
                     break;
                 case 4:
                     rootView =inflater.inflate(R.layout.fragment_lec4,container,false);
